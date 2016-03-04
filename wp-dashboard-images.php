@@ -30,13 +30,11 @@ class wpDashboardImages {
 	function css() {
 		echo '
 			<style type="text/css">
-				.column-thumbnail, 
-				.column-phonethumbnail{
+				.column-thumbnail{
 					width:80px;
 				}
 				
-				.column-thumbnail img,
-				.column-phonethumbnail img{
+				.column-thumbnail img{
 					width:60px;
 					height:auto;
 				}
@@ -55,11 +53,8 @@ class wpDashboardImages {
 		$height = (int) 60;
 		
 		if ( 'thumbnail' == $column_name ) {
-			// thumbnail of WP 2.9
-
-			if('thumbnail' == $column_name){
-				$thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
-
+			$thumbnail_id = get_post_meta( $post_id, '_thumbnail_id', true );
+			
 			// image from gallery
 			$attachments = get_children( array('post_parent' => $post_id, 'post_type' => 'attachment', 'post_mime_type' => 'image') );
 			if ($thumbnail_id){
@@ -71,7 +66,6 @@ class wpDashboardImages {
 			}
 		}
 	}
-
 
 }
 new wpDashboardImages();
