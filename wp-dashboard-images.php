@@ -43,7 +43,7 @@ class wpDashboardImages {
 	}
 
 	function AddThumbColumn($cols) {
-		$cols['thumbnail'] = __('Featured Image');
+		$cols['thumbnail'] = __('Featured');
 
 		return $cols;
 	}
